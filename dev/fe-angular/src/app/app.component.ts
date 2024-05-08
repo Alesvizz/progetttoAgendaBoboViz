@@ -4,11 +4,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { TutorialsService } from './services/tutorials.service';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JsonPipe, HttpClientModule],
+  imports: [RouterOutlet, JsonPipe, HttpClientModule, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
