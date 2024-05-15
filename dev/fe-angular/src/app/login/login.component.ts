@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TutorialsService } from '../services/tutorials.service';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -46,21 +47,14 @@ export class LoginComponent {
   }
 
 
-  constructor(private gestioneService: TutorialsService) {}
+  constructor(private userService: UserService) {
+
+
+  }
 
   login(): void{
-    /*
-    if(this.controlLog()){
-
-      this.gestioneService.login(this.utente).subscribe(
-        (remoteData) => {
-          this.data = remoteData;
-          this.controlloLogin();
-        }
-        )
-        
-      }
-      */
+    
+    
   }
 
   controlloLogin(): void{
@@ -73,18 +67,16 @@ export class LoginComponent {
   } 
 
   registration(): void{
-/*
-    if(this.controlReg()) {
 
-      this.gestioneService.register(this.newUtente).subscribe(
-        (remoteData) => {
-          this.data = remoteData;
-        }
-        )
-        this.registerConfirm();
+    this.userService.createUser(this.newUtente).subscribe(
+      (remoteData) => {
+        //...
       }
-      */
-    }
+    );
+
+  //...
+  
+  }
 
   controlReg(): boolean {
     if (this.newUtente.password == "" || this.newUtente.username == "") return false;
