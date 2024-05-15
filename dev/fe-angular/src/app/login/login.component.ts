@@ -13,6 +13,8 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent {
   
+msg:any
+
   data: any;
 
   utente: any = null;
@@ -70,11 +72,18 @@ export class LoginComponent {
 
     this.userService.createUser(this.newUtente).subscribe(
       (remoteData) => {
-        //...
+
+        this.newUtente.username=""
+        this.newUtente.password=""
+        this.newUtente.email=""
+        this.newUtente.name=""
+        this.newUtente.surname=""
+        
+        this.msg = "Utente registrato"
       }
     );
 
-  //...
+
   
   }
 
