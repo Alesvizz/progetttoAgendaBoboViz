@@ -20,10 +20,10 @@
         <mat-form-field>
           <mat-label>Priorità</mat-label>
           <mat-select [(ngModel)]="task.priority">
-            <mat-option value="pr_assoluta">Assoluta</mat-option>
-            <mat-option value="pr_alta">Alta</mat-option>
-            <mat-option value="pr_media">Media</mat-option>
-            <mat-option value="pr_bassa">Bassa</mat-option>
+            <mat-option value="1">Assoluta</mat-option>
+            <mat-option value="2">Alta</mat-option>
+            <mat-option value="3">Media</mat-option>
+            <mat-option value="4">Bassa</mat-option>
           </mat-select>
         </mat-form-field>
         <button mat-fab color="white" aria-label="Adding" (click)="add()">
@@ -35,15 +35,15 @@
   <hr>
   <div>
     <h2>Priorità assoluta</h2>
-    <div *ngFor="let task of taskList">
+    <div *ngFor="let task of taskList1; index as i">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Actions Buttons</mat-card-title>
-          <mat-card-subtitle>Start</mat-card-subtitle>
+          <mat-card-title>{{task.name}}</mat-card-title>
         </mat-card-header>
         <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList1)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -51,13 +51,49 @@
   <div>
     <hr>
     <h2>Priorità alta</h2>
+    <div *ngFor="let task of taskList2; index as i">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{task.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList2)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
   <div>
     <hr>
     <h2>Priorità media</h2>
+    <div *ngFor="let task of taskList3; index as i">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{task.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList3)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
   <div>
     <hr>
     <h2>Priorità bassa</h2>
+    <div *ngFor="let task of taskList4; index as i">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{task.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList4)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 </body>

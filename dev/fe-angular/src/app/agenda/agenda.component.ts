@@ -24,9 +24,20 @@ export class AgendaComponent {
     color: "#0000000"
   };
 
-  taskList :any[] = [];
+  taskList1 :any[] = [];
+  taskList2 :any[] = [];
+  taskList3 :any[] = [];
+  taskList4 :any[] = [];
 
   add() : void {
-    this.taskList.push(this.task);
+
+    if(this.task.priority == 1) this.taskList1.push(this.task);
+    else if(this.task.priority == 2) this.taskList2.push(this.task);
+    else if(this.task.priority == 3) this.taskList3.push(this.task);
+    else if(this.task.priority == 4) this.taskList4.push(this.task);
+  }
+
+  delete(id: any, array: any[]) : void {
+    array.splice(id,1);
   }
 }
