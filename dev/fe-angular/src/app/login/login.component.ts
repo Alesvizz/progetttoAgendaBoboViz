@@ -16,6 +16,7 @@ export class LoginComponent {
 msg:any
 
   data: any;
+  
 
   utente: any = null;
 
@@ -56,6 +57,15 @@ msg:any
 
   login(): void{
     
+      this.userService.loginUsers(this.utente).subscribe(
+        (remoteData) => {
+
+          this.newUtente.username=""
+          this.newUtente.password=""
+
+          this.msg = "Utente registrato"
+        }
+      )
     
   }
 

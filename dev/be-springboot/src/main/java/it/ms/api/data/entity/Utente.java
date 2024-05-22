@@ -27,6 +27,16 @@ public class Utente {
     @Column(name = "surname")
     private String surname;
 
+    public Utente(){}
+    
+    public Utente( String username, String password, String email, String name, String surname) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public long getId() {
         return id;
     }
@@ -73,13 +83,6 @@ public class Utente {
     }
 
 
-    public Utente( String username, String password, String email, String name, String surname) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-    }
 
 
     @Override

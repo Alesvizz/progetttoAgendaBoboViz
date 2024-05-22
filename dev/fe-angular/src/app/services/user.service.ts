@@ -16,4 +16,10 @@ export class UserService {
   createUser(user : any) : Observable<any> {
     return this.httpClient.post('http://localhost:4200/api/users/register', user);
 }
+
+  loginUsers(user : any) : Observable<any> {
+     
+    return this.httpClient.post('http://localhost:4200/api/users/login', user);
+
+  }
 }

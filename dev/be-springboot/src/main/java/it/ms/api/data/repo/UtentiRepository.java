@@ -6,4 +6,6 @@ import it.ms.api.data.entity.Utente;
 
 public interface UtentiRepository extends JpaRepository<Utente , Long>{
     
+    Utente findOneByUsername(String username);
+
 }

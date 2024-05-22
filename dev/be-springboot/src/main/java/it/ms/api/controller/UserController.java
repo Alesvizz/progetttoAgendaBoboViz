@@ -22,5 +22,16 @@ public class UserController {
 
     }
 
+    @PostMapping("login")
+    public Utente login(@RequestBody Utente i){
+
+        Utente ut = utentiRepository.findOneByUsername(i.getUsername());
+        if (ut.getPassword().equals(i.getPassword())) {
+            return ut;
+        } else {
+            throw new RuntimeException("User login error");
+        }
+    }
+
 
 }
