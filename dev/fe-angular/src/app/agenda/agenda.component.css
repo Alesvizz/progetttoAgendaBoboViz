@@ -1,0 +1,13 @@
+mat-card {
+    width: 330px;
+}
+
+body {
+    background-color: #255d6a;
+    padding: 30px;
+}
+
+.color_picker {
+    width: 80px;
+}
+
