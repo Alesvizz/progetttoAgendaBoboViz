@@ -58,12 +58,13 @@ msg:any
   login(): void{
     
       this.userService.loginUsers(this.utente).subscribe(
-        (remoteData) => {
+        (response) => {
+          this.loginSuccesso = response;
 
-          this.newUtente.username=""
-          this.newUtente.password=""
+          this.utente.username=""
+          this.utente.password=""
 
-          this.msg = "Utente registrato"
+          
         }
       )
     
@@ -88,8 +89,10 @@ msg:any
         this.newUtente.email=""
         this.newUtente.name=""
         this.newUtente.surname=""
+
         
-        this.msg = "Utente registrato"
+        
+
       }
     );
 
