@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+
+  user:any;
+
   constructor(private httpClient: HttpClient) { }
 
   getTutorials() : Observable<any> {
@@ -22,4 +25,18 @@ export class UserService {
     return this.httpClient.post('http://localhost:4200/api/users/login', user);
 
   }
+
+  getUser(id: number) : Observable<any> {
+    return this.httpClient.get(`http://localhost:4200/api/users/${id}`, {});
+  }
+
+
+  setLoggedinUser(user: any) {
+    this.user = user;
+  }
+
+  getLoggedinUser(): any {
+    return this.user;
+  }
+
 }

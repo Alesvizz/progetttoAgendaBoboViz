@@ -1,7 +1,8 @@
 <body>
-  <h1>Agenda dei topi</h1>
+  <h1>Elenco attività da svolgere</h1>
 
   <div>
+    <h2>Aggiungi attività</h2>
     <div class="example-button-container">
     </div>
     <br>
@@ -30,70 +31,72 @@
           <mat-icon>add</mat-icon>
         </button>
       </mat-card-actions>
-    </mat-card> 
+    </mat-card>
   </div>
   <hr>
   <div>
-    <h2>Priorità assoluta</h2>
-    <div *ngFor="let task of taskList1; index as i">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{task.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList1)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    <div>
+      <h2>Priorità assoluta</h2>
+      <div *ngFor="let singleTask of taskList1">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{singleTask.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-fab color="white" aria-label="Adding">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
-  </div>
-  <div>
-    <hr>
-    <h2>Priorità alta</h2>
-    <div *ngFor="let task of taskList2; index as i">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{task.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList2)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    <div>
+      <hr>
+      <h2>Priorità alta</h2>
+      <div *ngFor="let singleTask of taskList2">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{singleTask.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-fab color="white" aria-label="Adding">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
-  </div>
-  <div>
-    <hr>
-    <h2>Priorità media</h2>
-    <div *ngFor="let task of taskList3; index as i">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{task.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList3)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    <div>
+      <hr>
+      <h2>Priorità media</h2>
+      <div *ngFor="let singleTask of taskList3">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{singleTask.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-fab color="white" aria-label="Adding">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
-  </div>
-  <div>
-    <hr>
-    <h2>Priorità bassa</h2>
-    <div *ngFor="let task of taskList4; index as i">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{task.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <button mat-fab color="white" aria-label="Adding" (click)="delete(i, taskList4)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    <div>
+      <hr>
+      <h2>Priorità bassa</h2>
+      <div *ngFor="let singleTask of taskList4">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{singleTask.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-fab color="white" aria-label="Adding">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
   </div>
 </body>

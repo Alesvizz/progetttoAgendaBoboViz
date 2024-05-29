@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-agenda',
@@ -18,10 +19,14 @@ import { CommonModule } from '@angular/common';
 })
 export class AgendaComponent {
 
+  data: any;
+
+  addComplete: boolean = false;
+
   task: any = {
     priority: 1,
     name: "",
-    color: "#0000000"
+    color: "#000000"
   };
 
   taskList1 :any[] = [];
@@ -29,15 +34,32 @@ export class AgendaComponent {
   taskList3 :any[] = [];
   taskList4 :any[] = [];
 
+  constructor(private taskService: TaskService) {}
+
+  loadData(): void {
+    this.taskService.getData().subscribe(
+      (remoteData) => {
+        this.data = remoteData;
+        this.taskList1 = this.data.filter( (i:any) => i.priority == 1);
+        this.taskList2 = this.data.filter( (i:any) => i.priority == 2);
+        this.taskList3 = this.data.filter( (i:any) => i.priority == 3);      
+        this.taskList4 = this.data.filter( (i:any) => i.priority == 4);
+      }
+    )
+  }
+
   add() : void {
 
-    if(this.task.priority == 1) this.taskList1.push(this.task);
-    else if(this.task.priority == 2) this.taskList2.push(this.task);
-    else if(this.task.priority == 3) this.taskList3.push(this.task);
-    else if(this.task.priority == 4) this.taskList4.push(this.task);
-  }
+    this.taskService.addTask(this.task).subscribe(
+      (response) => {
+        this.addComplete = response;
+        this.loadData();
+      })
+      
+    }
 
-  delete(id: any, array: any[]) : void {
-    array.splice(id,1);
+
+    filterByType1 = {priority: 1};
+    
+
   }
-}

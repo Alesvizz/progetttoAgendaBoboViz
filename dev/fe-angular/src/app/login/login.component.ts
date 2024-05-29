@@ -8,13 +8,13 @@ import { AgendaComponent } from '../agenda/agenda.component';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule,AgendaComponent],
+  imports: [CommonModule, FormsModule, AgendaComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
   
-msg:any
+  msg:any
 
   data: any;
   
@@ -65,7 +65,7 @@ msg:any
           this.utente.username=""
           this.utente.password=""
 
-          
+          this.userService.setLoggedinUser(this.utente);
         }
       )
     
