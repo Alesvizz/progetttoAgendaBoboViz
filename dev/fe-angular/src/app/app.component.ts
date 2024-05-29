@@ -16,7 +16,7 @@ import { AgendaComponent } from './agenda/agenda.component';
 })
 export class AppComponent {
   title = 'fe-angular';
-
+  isLogged = false; 
   tutorials: any;
 
   constructor(private tutorialsService: TutorialsService) {}

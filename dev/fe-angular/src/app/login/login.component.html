@@ -54,11 +54,10 @@
 </div>    
 
 <div *ngIf="loginSuccesso==true">
-    <h1 class="success">Login avvenuto con successo</h1>
+    <app-agenda></app-agenda>
+
     <button (click)="indietro()">Entra con un altro account</button>
+
 </div>
 
-<div *ngIf="regSuccess==true">
-    <h1 class="success">Registrazione avvenuto con successo</h1>
-    <button (click)="indietro()">Torna pagina iniziale</button>
-</div>
+

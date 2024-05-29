@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { TutorialsService } from '../services/tutorials.service';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { AgendaComponent } from '../agenda/agenda.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,AgendaComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
