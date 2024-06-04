@@ -17,7 +17,7 @@ export class TaskService {
     return this.httpClient.post('http://localhost:4200/api/task', task);
   }
 
-  deleteTask(id: number): Observable<any> {
+  deleteTask(id: string): Observable<any> {
     return this.httpClient.delete(`http://localhost:4200/api/task/${id}`, {});
   }
 }

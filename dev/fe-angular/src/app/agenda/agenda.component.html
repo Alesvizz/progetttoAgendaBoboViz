@@ -7,17 +7,13 @@
     </div>
     <br>
     <mat-card>
-      <mat-card-header>
-        <mat-form-field>
+      <mat-card-header >
+        <mat-form-field class="mat-custom-input">
           <mat-label>Nuova attività</mat-label>
           <input matInput [(ngModel)]="task.name">
         </mat-form-field>
-        <mat-form-field class="color_picker">
-          <mat-label>Colore</mat-label>
-          <input matInput type="color" [(ngModel)]="task.color">
-        </mat-form-field>
       </mat-card-header>
-      <mat-card-actions>
+      <mat-card-actions class="mat-custom-card">
         <mat-form-field>
           <mat-label>Priorità</mat-label>
           <mat-select [(ngModel)]="task.priority">
@@ -27,7 +23,7 @@
             <mat-option value="4">Bassa</mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-fab color="white" aria-label="Adding" (click)="add()">
+        <button class="mat-custom-btn" mat-fab color="white" aria-label="Adding" (click)="add()">
           <mat-icon>add</mat-icon>
         </button>
       </mat-card-actions>
@@ -38,12 +34,13 @@
     <div>
       <h2>Priorità assoluta</h2>
       <div *ngFor="let singleTask of taskList1">
+        <br>
         <mat-card>
           <mat-card-header>
             <mat-card-title>{{singleTask.name}}</mat-card-title>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-fab color="white" aria-label="Adding">
+            <button mat-fab color="white" aria-label="Adding" (click)="remove(singleTask.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>
@@ -54,12 +51,13 @@
       <hr>
       <h2>Priorità alta</h2>
       <div *ngFor="let singleTask of taskList2">
+        <br>
         <mat-card>
           <mat-card-header>
             <mat-card-title>{{singleTask.name}}</mat-card-title>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-fab color="white" aria-label="Adding">
+            <button mat-fab color="white" aria-label="Adding" (click)="remove(singleTask.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>
@@ -70,12 +68,13 @@
       <hr>
       <h2>Priorità media</h2>
       <div *ngFor="let singleTask of taskList3">
+        <br>
         <mat-card>
           <mat-card-header>
             <mat-card-title>{{singleTask.name}}</mat-card-title>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-fab color="white" aria-label="Adding">
+            <button mat-fab color="white" aria-label="Adding" (click)="remove(singleTask.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>
@@ -86,12 +85,13 @@
       <hr>
       <h2>Priorità bassa</h2>
       <div *ngFor="let singleTask of taskList4">
+        <br>
         <mat-card>
           <mat-card-header>
             <mat-card-title>{{singleTask.name}}</mat-card-title>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-fab color="white" aria-label="Adding">
+            <button mat-fab color="white" aria-label="Adding" (click)="remove(singleTask.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>

@@ -1,63 +1,58 @@
-<div *ngIf="loginSuccesso==false && regSuccess==false">
-    <div>
-        <h1>Selezionare tipo di operazione</h1>
-        <button (click)="loginUtente()">Login</button>
-        <br><br>
-        <button (click)="nuovoUtente()">Registration</button>
-    </div>
-<br>
-    <div *ngIf="utente">
-        <hr>
-        <h3 class="error" *ngIf="errorLogin">ERRORE! Username o password sbagliati!</h3>
-        <h1>Login</h1>
-        <div>
-            <label>Username: <input type="text" [(ngModel)]="utente.username" placeholder="(obbligatorio)"></label>
-        </div>
+<body>
+<div class="login-wrapper" *ngIf="loginSuccesso==false && regSuccess==false && utente" >
+    <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Log in</mat-card-title>
+        </mat-card-header>
         <br>
-        <div>
-            <label>Password: <input type="password" [(ngModel)]="utente.password" placeholder="(obbligatorio)"></label>
-        </div>
-        <br>
-        <div>
-            <button (click)="login()">Login</button>
-        </div>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username" [(ngModel)]="utente.username">
+            </mat-form-field>
+    <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" [(ngModel)]="utente.password">
+            </mat-form-field>
+          </mat-card-content>
+          <button mat-stroked-button color="accent" class="btn-block" (click)="login()">Log in</button>
+          <br>
+          <button mat-stroked-button color="account" class="btn-block" (click)="nuovoUtente()">Register</button>
+      </mat-card>
     </div>
+
+    <div class="login-wrapper" *ngIf="loginSuccesso==false && regSuccess==false && newUtente">
+        <mat-card class="box">
+          <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+          </mat-card-header>
+          <br>
+      <mat-card-content>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" [(ngModel)]="newUtente.username">
+              </mat-form-field>
+      <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [(ngModel)]="newUtente.email">
+              </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Name" [(ngModel)]="newUtente.name">
+                </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Surname" [(ngModel)]="newUtente.surname">
+                    </mat-form-field>
+      <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="newUtente.password">
+              </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="registration(); loginUtente()">Register</button>
+      <br>
+      <button mat-stroked-button color="add" class="btn-block" (click)="loginUtente()">Cancel</button>
+        </mat-card>
+      </div>
+
+      <div *ngIf="loginSuccesso==true">
+        <app-agenda></app-agenda>
     
-    <div *ngIf="newUtente">
-        <hr>
-        <h1>Registration</h1>
-        <div>
-            <label>Username: <input type="text" [(ngModel)]="newUtente.username" placeholder="(obbligatorio)" required></label>
-        </div>
-        <br>
-        <div>
-            <label>Password: <input type="password" [(ngModel)]="newUtente.password" placeholder="(obbligatorio)" required></label>
-        </div>
-        <br>
-        <div>
-            <label>Email: <input type="text" [(ngModel)]="newUtente.email" placeholder="(obbligatorio)" required></label>
-        </div>
-        <br>
-        <div>
-            <label>Name: <input type="text" [(ngModel)]="newUtente.name" placeholder="(obbligatorio)" required></label>
-        </div>
-        <br>
-        <div>
-            <label>Surname: <input type="text" [(ngModel)]="newUtente.surname" placeholder="(obbligatorio)" required></label>
-        </div>
-        <p >{{msg}} </p>
-        <br>
-        <div>
-            <button (click)="registration()">Register</button>
-        </div>
-    </div>
-</div>    
+        <button mat-stroked-button color="add" class="btn-block" (click)="indietro()">Entra con un altro account</button>
+    
+    </div> 
 
-<div *ngIf="loginSuccesso==true">
-    <app-agenda></app-agenda>
-
-    <button (click)="indietro()">Entra con un altro account</button>
-
-</div>
-
-
+</body>

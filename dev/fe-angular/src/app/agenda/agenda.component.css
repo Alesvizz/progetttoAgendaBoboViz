@@ -11,3 +11,19 @@ body {
     width: 80px;
 }
 
+.mat-custom-btn {
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: auto !important;
+}
+
+.mat-custom-input {
+    width: 150% !important;
+}
+
+.mat-custom-card {
+    padding: 16px !important;
+}
+
+

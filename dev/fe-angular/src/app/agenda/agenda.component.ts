@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
@@ -17,7 +17,7 @@ import { TaskService } from '../services/task.service';
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.css'
 })
-export class AgendaComponent {
+export class AgendaComponent implements OnInit {
 
   data: any;
 
@@ -26,7 +26,7 @@ export class AgendaComponent {
   task: any = {
     priority: 1,
     name: "",
-    color: "#000000"
+    id: ""
   };
 
   taskList1 :any[] = [];
@@ -35,6 +35,11 @@ export class AgendaComponent {
   taskList4 :any[] = [];
 
   constructor(private taskService: TaskService) {}
+
+  ngOnInit(){
+
+    this.loadData();
+  }
 
   loadData(): void {
     this.taskService.getData().subscribe(
@@ -49,17 +54,24 @@ export class AgendaComponent {
   }
 
   add() : void {
-
     this.taskService.addTask(this.task).subscribe(
       (response) => {
         this.addComplete = response;
         this.loadData();
-      })
-      
+      })  
     }
 
 
-    filterByType1 = {priority: 1};
-    
+    //filterByType1 = {priority: 1};
 
+    remove(id:string) : void {
+      console.log(id)
+      this.taskService.deleteTask(id).subscribe(
+        (response) => {
+          this.addComplete = response;
+          this.loadData();
+        })  
+    }
   }
+  
+  

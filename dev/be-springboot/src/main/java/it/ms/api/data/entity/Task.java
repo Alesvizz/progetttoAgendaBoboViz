@@ -18,18 +18,12 @@ public class Task {
     private String priority;
 
 
-    @Column(name = "color")
-    private String color;
-
-
 
     
-
 
     public Task( String name, String priority, String color) {
         this.name = name;
         this.priority = priority;
-        this.color = color;
     }
 
 
@@ -65,18 +59,5 @@ public class Task {
     public void setPriority(String priority) {
         this.priority = priority;
     }
-
-
-    public String getColor() {
-        return color;
-    }
-
-
-    public void setColor(String color) {
-        this.color = color;
-    }
- 
-
-    
     
 }

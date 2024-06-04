@@ -31,7 +31,7 @@ public class TaskController {
         return taskRepository.findAll();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void delete (@PathVariable("id") long id){
          taskRepository.deleteById(id);
          
